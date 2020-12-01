@@ -1,17 +1,47 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDom from 'react-dom';
+
+//Mini Project
+
+//CSS
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+//setup vars
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const firstBook = {
+  img:
+    'https://images-na.ssl-images-amazon.com/images/I/817T4J3dzhL._AC_UL200_SR200,200_.jpg',
+  title: 'If Animals Kissed Good Night',
+  author: 'Ann Whitford Paul',
+};
+
+const title = 'Dog Man: Grime and Punishment';
+const author = 'Dav Pilkey';
+const img =
+  'https://images-na.ssl-images-amazon.com/images/I/5114SwAJ1oL._SX336_BO1,204,203,200_.jpg';
+
+function BookList() {
+  return (
+    <section className='booklist'>
+      <Book
+        img={firstBook.img}
+        title={firstBook.title}
+        author={firstBook.author}
+      />
+      <Book title='random title' number={22} />
+    </section>
+  );
+}
+
+const Book = (props) => {
+  console.log(props);
+  return (
+    <article className='book'>
+      <img src={props.img} alt='' />
+      <h1>{props.title}</h1>
+      <h4>{props.author}</h4>
+    </article>
+  );
+};
+
+ReactDom.render(<BookList />, document.getElementById('root'));
