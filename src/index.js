@@ -6,40 +6,38 @@ import ReactDom from 'react-dom';
 //CSS
 import './index.css';
 
-//setup vars
+const books = [
+  {
+    img:
+      'https://images-na.ssl-images-amazon.com/images/I/817T4J3dzhL._AC_UL200_SR200,200_.jpg',
+    title: 'If Animals Kissed Good Night',
+    author: 'Ann Whitford Paul',
+  },
 
-const firstBook = {
-  img:
-    'https://images-na.ssl-images-amazon.com/images/I/817T4J3dzhL._AC_UL200_SR200,200_.jpg',
-  title: 'If Animals Kissed Good Night',
-  author: 'Ann Whitford Paul',
-};
+  {
+    img:
+      'https://images-na.ssl-images-amazon.com/images/I/71c1LRLBTBL._AC_UL200_SR200,200_.jpg',
+    title: 'Dog Man: Grime and Punishment',
+    author: 'Dav Pilkey',
+  },
+];
 
-const title = 'Dog Man: Grime and Punishment';
-const author = 'Dav Pilkey';
-const img =
-  'https://images-na.ssl-images-amazon.com/images/I/5114SwAJ1oL._SX336_BO1,204,203,200_.jpg';
-
+const names = ['john', 'peter', 'susan'];
+const newName = names.map((name) => {
+  return <h1>{name}</h1>;
+});
+console.log(newName);
 function BookList() {
-  return (
-    <section className='booklist'>
-      <Book
-        img={firstBook.img}
-        title={firstBook.title}
-        author={firstBook.author}
-      />
-      <Book title='random title' number={22} />
-    </section>
-  );
+  return <section className='booklist'>{newName}</section>;
 }
 
-const Book = (props) => {
-  console.log(props);
+const Book = ({ img, title, author }) => {
+  //const { img, title, author } = props;
   return (
     <article className='book'>
-      <img src={props.img} alt='' />
-      <h1>{props.title}</h1>
-      <h4>{props.author}</h4>
+      <img src={img} alt='' />
+      <h1>{title}</h1>
+      <h4>{author}</h4>
     </article>
   );
 };

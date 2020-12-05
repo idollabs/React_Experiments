@@ -23,13 +23,14 @@ body {
 @media screen and (min-width: 768px) {
   .booklist {
     grid-template-columns: repeat(3, 1fr);
+    align-items: start;
   }
 }
 
 .book {
-  background: fff;
+  background: #fff;
   border-radius: 1rem;
-  padding: 1rem 2 rem;
+  padding: 1rem 2rem;
 }
 
 .book h1 {
